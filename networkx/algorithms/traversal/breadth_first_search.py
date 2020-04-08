@@ -66,10 +66,12 @@ def generic_bfs_edges(G, source, neighbors=None, depth_limit=None):
         parent, depth_now, children = queue[0]
         try:
             child = next(children)
+            print (child)
             if child not in visited:
-                yield parent, child
+
+                yield parent, child 
                 visited.add(child)
-                if depth_now > 1:
+                if depth_now > 1:#se siamo arrivati alla fine si ferma
                     queue.append((child, depth_now - 1, neighbors(child)))
         except StopIteration:
             queue.popleft()
